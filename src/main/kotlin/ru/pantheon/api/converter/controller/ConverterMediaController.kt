@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import ru.pantheon.api.converter.dto.ConverterAudioDTO
-import ru.pantheon.api.converter.dto.ConverterThumbDTO
+import ru.pantheon.api.converter.dto.ConverterImageDTO
 import ru.pantheon.api.converter.dto.ConverterVideoDTO
 
 /**
@@ -22,7 +22,7 @@ interface ConverterMediaController {
      * Выполняет обработку изображения [imageName] в файловом хранилище пространства [spaceId].
      */
     @PostMapping("/image")
-    fun processImage(@PathVariable spaceId: Long, @RequestParam imageName: String): List<ConverterThumbDTO>
+    fun processImage(@PathVariable spaceId: Long, @RequestParam imageName: String): ConverterImageDTO
 
     @PostMapping("/video")
     fun processVideo(@PathVariable spaceId: Long, @RequestParam videoName: String): ConverterVideoDTO

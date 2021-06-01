@@ -5,7 +5,7 @@
 
     <groupId>ru.pantheon.api</groupId>
     <artifactId>converter</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <name>api-converter</name>
     <description>API collection for integrations between MinervaKMS Converter and other services</description>
 

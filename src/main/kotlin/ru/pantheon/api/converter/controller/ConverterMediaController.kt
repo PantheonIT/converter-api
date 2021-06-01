@@ -1,13 +1,12 @@
 package ru.pantheon.api.converter.controller
 
 import org.springframework.cloud.openfeign.FeignClient
+import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
-import ru.pantheon.api.converter.dto.ConverterAudioDTO
-import ru.pantheon.api.converter.dto.ConverterImageDTO
-import ru.pantheon.api.converter.dto.ConverterVideoDTO
+import org.springframework.web.bind.annotation.ResponseStatus
 
 /**
  * Интерфейс, содержащий методы для обработки медиа-файлов системы.
@@ -22,11 +21,14 @@ interface ConverterMediaController {
      * Выполняет обработку изображения [imageName] в файловом хранилище пространства [spaceId].
      */
     @PostMapping("/image")
-    fun processImage(@PathVariable spaceId: Long, @RequestParam imageName: String): ConverterImageDTO
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    fun processImage(@PathVariable spaceId: Long, @RequestParam fileId: Long, @RequestParam versionId : Long, @RequestParam imageName: String)
 
     @PostMapping("/video")
-    fun processVideo(@PathVariable spaceId: Long, @RequestParam videoName: String): ConverterVideoDTO
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    fun processVideo(@PathVariable spaceId: Long, @RequestParam fileId: Long, @RequestParam versionId : Long, @RequestParam videoName: String)
 
     @PostMapping("/audio")
-    fun processAudio(@PathVariable spaceId: Long, @RequestParam audioName: String): ConverterAudioDTO
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    fun processAudio(@PathVariable spaceId: Long, @RequestParam fileId: Long, @RequestParam versionId : Long, @RequestParam audioName: String)
 }

@@ -23,12 +23,13 @@ import ru.pantheon.api.converter.dto.ConverterDocumentDTO
 interface ConverterDocumentController {
 
     /**
-     * Выполняет процесс обработки документа [documentName] в пространстве [spaceId]. Возвращает обёртку с данными типа
-     * [ConverterDocumentDTO], содержащей HTML-структуру документа и коллекцию обёрток над изображениями в документе.
+     * Выполняет процесс обработки документа [documentName] в пространстве [spaceId]. [fileId] и [versionId]
+     * используются для последующего уведомления ядра о завершении процесса обработки документа.
      */
     @PostMapping("/document")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    fun processDocument(@PathVariable spaceId: Long, @RequestParam fileId: Long, @RequestParam versionId : Long, @RequestParam documentName: String)
+    fun processDocument(@PathVariable spaceId: Long, @RequestParam fileId: Long, @RequestParam versionId : Long,
+                        @RequestParam documentName: String)
 
     /**
      * Выполняет преобразование переданного [html] в формат docx. Картинки в переданном документе загружаются в тело

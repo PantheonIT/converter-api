@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseStatus
-
-import ru.pantheon.api.converter.dto.ConverterDocumentDTO
+import ru.pantheon.api.converter.dto.ExportType
 
 /**
  * Интерфейс, содержащий методы работы с документами системы.
@@ -32,9 +31,10 @@ interface ConverterDocumentController {
                         @RequestParam documentName: String)
 
     /**
-     * Выполняет преобразование переданного [html] в формат docx. Картинки в переданном документе загружаются в тело
+     * Выполняет преобразование переданного [html] в формат [type]. Картинки в переданном документе загружаются в тело
      * документа. [spaceId] используется для определения межстоположения изображений.
      */
     @PostMapping("/document/export")
-    fun exportDocument(@PathVariable spaceId: Long, @RequestBody html: String): ResponseEntity<Resource>
+    fun exportDocument(@PathVariable spaceId: Long, @RequestParam type: ExportType, @RequestBody html: String):
+        ResponseEntity<Resource>
 }

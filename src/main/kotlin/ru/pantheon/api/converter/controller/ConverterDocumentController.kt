@@ -28,7 +28,7 @@ interface ConverterDocumentController {
     @PostMapping("/document")
     @ResponseStatus(HttpStatus.ACCEPTED)
     fun processDocument(@PathVariable spaceId: Long, @RequestParam fileId: Long, @RequestParam versionId : Long,
-                        @RequestParam documentName: String)
+                        @RequestParam documentName: String, @RequestParam auto: Boolean)
 
     /**
      * Выполняет преобразование переданного [html] в формат [type]. Картинки в переданном документе загружаются в тело

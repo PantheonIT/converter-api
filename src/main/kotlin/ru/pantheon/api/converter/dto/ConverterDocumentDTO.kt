@@ -20,5 +20,10 @@ data class ConverterDocumentDTO(
      * Набор обёрток над всеми изображениями, связанными с документом (содержащимися в документе, либо являющимися
      * сконвертированными в изображение страницами документа)
      */
-    val allDocumentImages: Set<ConverterImageDTO> = emptySet()
+    val allDocumentImages: Set<ConverterImageDTO> = emptySet(),
+
+    /**
+     * Маркер автоматического процесса создания preview-документов.
+     */
+    val auto: Boolean
 )

@@ -8,35 +8,40 @@ data class ConverterVideoDTO(
     /**
      * Название файла.
      */
-    val name: String,
+    val name: String?,
 
     /**
      * Расширение файла.
      */
-    val extension: String,
+    val extension: String?,
 
     /**
      * Ширина видео-изображения.
      */
-    val width: Int,
+    val width: Int?,
 
     /**
      * Высота видео-изображения.
      */
-    val height: Int,
+    val height: Int?,
 
     /**
      * Длительность видео в миллисекундах.
      */
-    val duration: Long,
+    val duration: Long?,
 
     /**
      * Размер файла в байтах.
      */
-    var fileSize: Long,
+    var fileSize: Long?,
 
     /**
      * Коллекция уменьшенных копий превью видео.
      */
     val thumbs: Set<ConverterThumbDTO> = emptySet(),
+
+    /**
+     * Описание ошибок при конвертации.
+     */
+    val error: String?
 )

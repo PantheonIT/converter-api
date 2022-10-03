@@ -8,13 +8,13 @@ data class ConverterDocumentDTO(
     /**
      * Содержимое документа в HTML-формате.
      */
-    val content: String,
+    val content: String?,
 
     /**
      * Ссылки на файлы-изображения, являющиеся сконвертированнными в изображения страницами докуемнта. В порядке
      * расположения страниц в документе.
      */
-    val pageImageLinks: List<String>,
+    val pageImageLinks: List<String>?,
 
     /**
      * Набор обёрток над всеми изображениями, связанными с документом (содержащимися в документе, либо являющимися
@@ -25,5 +25,10 @@ data class ConverterDocumentDTO(
     /**
      * Маркер автоматического процесса создания preview-документов.
      */
-    val auto: Boolean
+    val auto: Boolean?,
+
+    /**
+     * Описание ошибок при конвертации.
+     */
+    val error: String?
 )

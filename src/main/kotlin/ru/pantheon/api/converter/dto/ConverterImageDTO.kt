@@ -8,30 +8,35 @@ data class ConverterImageDTO(
     /**
      * Название файла.
      */
-    val fileName: String,
+    val fileName: String?,
 
     /**
      * Расширение файла.
      */
-    val extension: String,
+    val extension: String?,
 
     /**
      * Размер файла в байтах.
      */
-    val fileSize: Long,
+    val fileSize: Long?,
 
     /**
      * Ширина изображения.
      */
-    val width: Int,
+    val width: Int?,
 
     /**
      * Высота изображения.
      */
-    val height: Int,
+    val height: Int?,
 
     /**
      * Коллекция обёрток над уменьшенными копиями изображения.
      */
-    val thumbs: Set<ConverterThumbDTO> = emptySet()
+    val thumbs: Set<ConverterThumbDTO> = emptySet(),
+
+    /**
+     * Описание ошибок при конвертации.
+     */
+    val error: String?
 )

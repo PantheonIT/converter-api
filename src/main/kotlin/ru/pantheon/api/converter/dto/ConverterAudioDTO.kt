@@ -8,20 +8,25 @@ data class ConverterAudioDTO(
     /**
      * Название файла.
      */
-    val name: String,
+    val name: String?,
 
     /**
      * Расширение файла.
      */
-    val extension: String,
+    val extension: String?,
 
     /**
      * Длительность звуковой дорожки в миллисекундах.
      */
-    val duration: Long,
+    val duration: Long?,
 
     /**
      * Размер файла в байтах.
      */
-    var fileSize: Long,
+    var fileSize: Long?,
+
+    /**
+     * Описание ошибок при конвертации.
+     */
+    val error: String?
 )
